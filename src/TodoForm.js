@@ -6,6 +6,7 @@ const TodoForm = ({ addTodo }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     addTodo({
+      id: Date.now(),
       text: text,
     });
     setText('');

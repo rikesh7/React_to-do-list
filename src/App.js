@@ -15,14 +15,20 @@ const App = () => {
     setTodos(newTodos);
   };
 
-  
+  const editTodo = (todo) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((t) => t.id === todo.id);
+    if (index >= 0) {
+      newTodos[index] = todo;
+      setTodos(newTodos);
+    }
+  };
 
   return (
     <div className='container'>
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo} />
-
-      <TodoList todos={todos} deleteTodo={deleteTodo}  />
+      <TodoList todos={todos} deleteTodo={deleteTodo} editTodo={editTodo} />
     </div>
   );
 };
